@@ -37,9 +37,9 @@ else if (hsp < 0) && (!stunned)
 }
 
 //movespd cap
-if (moveSpd > 10)
+if (moveSpd > 5)
 {
-	moveSpd = 10;	
+	moveSpd = 5;	
 }
 
 //Check for aggro range
@@ -52,6 +52,25 @@ if (collision_circle(x,y, aggroRange, oPlayer, false, true))
 //Chase
 if (chasing == true) && (!stunned)
 {
+	if (jumped) && (!stunned)
+	{
+		if (x > oPlayer.x)
+		{
+			hsp = -2;
+		}
+		else if (x < oPlayer.x)
+		{
+			hsp = 2;
+		}
+	}
+	
+	if ((isTouchingLeftWall) || (isTouchingRightWall)) && !jumped && (sprite_index == Creature_Running) && !stunned
+	{
+		jumped = true;
+		vsp = -jumpSpd;
+		sprite_index = Creature_Jump_Landing;
+	}
+	
 	if (isTouchingGround) && (!lunged)
 	{
 		sprite_index = Creature_Running;
@@ -68,10 +87,11 @@ if (chasing == true) && (!stunned)
 	if (collision_circle(x, y, lungeRange, oPlayer, false, true))
 	{
 		//lunge
-		if (!lunged) && (isTouchingGround)
+		if (!lunged) && (isTouchingGround) && (!isTouchingLeftWall) && (!isTouchingRightWall)
 		{
 			sprite_index = Lunge_Creature;
 			lunged = true;
+			alarm[2] = lungCoolDown;
 			if (!oPlayer.isTouchingGround || oPlayer.hasPressedJumpKey)
 			{
 				vsp = -8;
@@ -121,7 +141,7 @@ if (lunged)
 
 if (isTouchingGround) && (vsp == 0)
 {
-	lunged = false;	
+	jumped = false;
 }
 else
 {

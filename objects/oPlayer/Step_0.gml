@@ -27,8 +27,10 @@ isPressingLeftKey = keyboard_check(vk_left);
 hasPressedJumpKey = keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_up);
 hasPressedWhackKey = keyboard_check_pressed(ord("C"));
 
-if (hasPressedWhackKey)
+if (hasPressedWhackKey) && whackCoolDownOver
 {
+	whackCoolDownOver = false;
+	alarm[1] = whackCoolDownDuration;
 	image_speed = 1;
 	//play animation
 	sprite_index = Alice_whack;
@@ -70,7 +72,8 @@ if (numOfMonsters > 0) && (whackingActive)
 			
 			else if (oPlayer.x == x)
 			{
-				vsp = -oPlayer.whackPowerVert * 1.1;	
+				vsp = -oPlayer.whackPowerVert * 1.1;
+				hsp = choose(oPlayer.whackPowerHori, -oPlayer.whackPowerHori);
 			}
 			
 			//Stun monsters for 1.5s

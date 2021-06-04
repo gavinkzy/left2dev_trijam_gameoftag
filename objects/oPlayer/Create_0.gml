@@ -11,7 +11,7 @@ tilemap_terrain = layer_tilemap_get_id(layer_get_id("Tilemap_Terrain"));
 vsp = 0;
 hsp = 0;
 grv = 0.5;
-moveSpd = 5;
+moveSpd = 4.2;
 jumpSpd = 7;
 
 isTouchingGround = false;
@@ -30,12 +30,15 @@ whackRange = 40;
 whackingActive = false;
 whackingActiveDuration = 0.8 * room_speed;
 
+whackCoolDownOver = true;
+whackCoolDownDuration = 1 * room_speed;
+
 hasObtainedFlag = false;
 remainingTime = 30 * room_speed;
 
 whackPowerVert = 10;
 whackPowerHori = 15;
 
-godMode = true;
+godMode = false;
 
 hasPressedWhackKey = false;
