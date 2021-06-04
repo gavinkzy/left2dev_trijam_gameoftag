@@ -42,3 +42,5 @@ whackPowerHori = 15;
 godMode = false;
 
 hasPressedWhackKey = false;
+
+hasCollectedFakeChicken = false;

@@ -1,5 +1,4 @@
-
-if (spawned == false)
+if (spawned == false) && (spawningBegan)
 {
 	spawned = true;
 	alarm[0] = spawnDelay;
