@@ -28,7 +28,14 @@ isJumping = false;
 //Whack
 whackRange = 40;
 whackingActive = false;
-whackingActiveDuration = 1 * room_speed;
+whackingActiveDuration = 0.8 * room_speed;
 
 hasObtainedFlag = false;
 remainingTime = 30 * room_speed;
+
+whackPowerVert = 10;
+whackPowerHori = 15;
+
+godMode = true;
+
+hasPressedWhackKey = false;

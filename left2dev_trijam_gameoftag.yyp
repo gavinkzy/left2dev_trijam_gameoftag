@@ -1,7 +1,7 @@
 {
   "resources": [
-    {"id":{"name":"_349193__natty23__whack","path":"sounds/_349193__natty23__whack/_349193__natty23__whack.yy",},"order":0,},
-    {"id":{"name":"Alice_HeavyAttack_StaffFINALDONE","path":"sprites/Alice_HeavyAttack_StaffFINALDONE/Alice_HeavyAttack_StaffFINALDONE.yy",},"order":2,},
+    {"id":{"name":"sndWhack","path":"sounds/sndWhack/sndWhack.yy",},"order":0,},
+    {"id":{"name":"Alice_whack","path":"sprites/Alice_whack/Alice_whack.yy",},"order":2,},
     {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},"order":1,},
     {"id":{"name":"sMonster","path":"sprites/sMonster/sMonster.yy",},"order":9,},
     {"id":{"name":"sFlag","path":"sprites/sFlag/sFlag.yy",},"order":10,},
@@ -39,6 +39,7 @@
     {"id":{"name":"DrawSetText","path":"scripts/DrawSetText/DrawSetText.yy",},"order":1,},
     {"id":{"name":"Lunge_Sound","path":"sounds/Lunge_Sound/Lunge_Sound.yy",},"order":1,},
     {"id":{"name":"Physics","path":"scripts/Physics/Physics.yy",},"order":0,},
+    {"id":{"name":"oSpawnPoint","path":"objects/oSpawnPoint/oSpawnPoint.yy",},"order":8,},
     {"id":{"name":"Lunge_Creature","path":"sprites/Lunge_Creature/Lunge_Creature.yy",},"order":2,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],

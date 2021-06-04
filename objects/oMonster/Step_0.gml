@@ -1,3 +1,41 @@
+if (stunned)
+
+{
+	sprite_index = Creature_Stunned;
+	if (hsp > 0)
+	{
+		image_xscale = 1;	
+	}
+
+	else if (hsp < 0)
+	{
+		image_xscale = -1;	
+	}
+	//Check if hit right wall
+	if (isTouchingRightWall) && (!isTouchingGround)
+	{
+		hsp = -10;
+		vsp = -10;
+	}
+	//Check if hit left wall
+	if (isTouchingLeftWall) && (!isTouchingGround)
+	{
+		hsp = 10;
+		vsp = -10;
+	}
+}
+
+//flip sprite
+if (hsp > 0) && (!stunned)
+{
+	image_xscale = -1;	
+}
+
+else if (hsp < 0) && (!stunned)
+{
+	image_xscale = 1;	
+}
+
 //movespd cap
 if (moveSpd > 10)
 {
@@ -30,7 +68,7 @@ if (chasing == true) && (!stunned)
 	if (collision_circle(x, y, lungeRange, oPlayer, false, true))
 	{
 		//lunge
-		if (!lunged)
+		if (!lunged) && (isTouchingGround)
 		{
 			sprite_index = Lunge_Creature;
 			lunged = true;
@@ -44,17 +82,21 @@ if (chasing == true) && (!stunned)
 			}
 			if (x > oPlayer.x)
 			{
-				hsp = -5;
+				hsp = -lungePower;
 			}
 			else if (x < oPlayer.x)
 			{
-				hsp = 5;
+				hsp = lungePower;
+			}
+			if (audio_is_playing(Lunge_Sound))
+			{
+				audio_stop_sound(Lunge_Sound);	
 			}
 			audio_play_sound_at(Lunge_Sound, x, y, 0, 10, 20, 0.5, false, 0);
 		}
 	}
 }
-else
+else if (!stunned)
 {
 	sprite_index = Creature_Idle;	
 }
@@ -62,9 +104,18 @@ else
 if (lunged)
 {
 	//Check for tagging range
-	if (collision_circle(x,y, taggingRange, oPlayer, false, true))
+	if (collision_circle(x,y, taggingRange, oPlayer, false, true)) && (!oPlayer.godMode)
 	{
 		room_restart();
+	}
+	//Apply air resistance
+	if (hsp>0)
+	{
+		hsp = max(0, hsp - airResistance);
+	}
+	else if (hsp<0)
+	{
+		hsp = min(0, hsp + airResistance);	
 	}
 }
 

@@ -8,17 +8,17 @@ if (hasObtainedFlag)
 }
 
 //Animation handler
-if (isIdle) 
+if (isIdle) && (!whackingActive)
 {
 	image_speed = 1;
 	sprite_index = Alice_idle;
 }
-if (isRunning) && (!isJumping) 
+if (isRunning) && (!isJumping)  && (!whackingActive)
 {	
 	image_speed = 1;
 	sprite_index = Alice_running_A;
 }
-if (isJumping) sprite_index = Alice_jump;
+if (isJumping) && (!whackingActive) sprite_index = Alice_jump;
 
 
 //Check Player Inputs
@@ -29,8 +29,9 @@ hasPressedWhackKey = keyboard_check_pressed(ord("C"));
 
 if (hasPressedWhackKey)
 {
+	image_speed = 1;
 	//play animation
-	
+	sprite_index = Alice_whack;
 	//set whacking active
 	whackingActive = true;
 	//set duration before disable
@@ -49,18 +50,29 @@ if (numOfMonsters > 0) && (whackingActive)
 		{
 		if (lunged) && (!stunned)
 		{
-			//Send monsters flying
-			if (oPlayer.x>x) && (oPlayer.image_xscale < 0) //send flying towards left
+			if audio_is_playing(sndWhack)
 			{
-				hsp = -10;
-				vsp = -2;
+				audio_stop_sound(sndWhack);	
+			}
+			audio_play_sound(sndWhack,0,false);
+			//Send monsters flying
+			if (oPlayer.x>x) //send flying towards left
+			{
+				hsp = -oPlayer.whackPowerHori;
+				vsp = -oPlayer.whackPowerVert;
 			}
 		
-			else if (oPlayer.x<x) && (oPlayer.image_xscale > 0) //send flying towards right
+			else if (oPlayer.x<x) //send flying towards right
 			{
-				hsp = 10;
-				vsp = -2;	
+				hsp = oPlayer.whackPowerHori;
+				vsp = -oPlayer.whackPowerVert;	
 			}
+			
+			else if (oPlayer.x == x)
+			{
+				vsp = -oPlayer.whackPowerVert * 1.1;	
+			}
+			
 			//Stun monsters for 1.5s
 			stunned = true;
 			alarm[1] = 1.5 * room_speed;
@@ -99,6 +111,10 @@ else if (vsp == 0)
 {
 	isJumping = false;
 	isIdle = true;
+}
+else if (vsp > 0)
+{
+	sprite_index = Alice_falling;	
 }
 
 if (hasPressedJumpKey) && (isTouchingGround)

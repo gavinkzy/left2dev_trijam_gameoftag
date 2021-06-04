@@ -1,6 +1,6 @@
 {
   "compression": 0,
-  "volume": 1.0,
+  "volume": 0.1,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "_349193__natty23__whack.wav",
+  "soundFile": "sndWhack.wav",
   "duration": 0.697517,
   "parent": {
     "name": "Sound",
     "path": "folders/Sounds/Sound.yy",
   },
   "resourceVersion": "1.0",
-  "name": "_349193__natty23__whack",
+  "name": "sndWhack",
   "tags": [],
   "resourceType": "GMSound",
 }
