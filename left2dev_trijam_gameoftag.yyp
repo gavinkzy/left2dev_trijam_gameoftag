@@ -24,6 +24,7 @@
     {"id":{"name":"fDefault","path":"fonts/fDefault/fDefault.yy",},"order":0,},
     {"id":{"name":"sCamPin","path":"sprites/sCamPin/sCamPin.yy",},"order":6,},
     {"id":{"name":"oMusicPlayer","path":"objects/oMusicPlayer/oMusicPlayer.yy",},"order":5,},
+    {"id":{"name":"oDeadlyObject","path":"objects/oDeadlyObject/oDeadlyObject.yy",},"order":9,},
     {"id":{"name":"TileSet2","path":"tilesets/TileSet2/TileSet2.yy",},"order":4,},
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"order":0,},
     {"id":{"name":"oCamera","path":"objects/oCamera/oCamera.yy",},"order":1,},
