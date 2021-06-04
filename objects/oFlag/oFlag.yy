@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sFlag",
-    "path": "sprites/sFlag/sFlag.yy",
+    "name": "Chicken",
+    "path": "sprites/Chicken/Chicken.yy",
   },
   "solid": false,
   "visible": true,
