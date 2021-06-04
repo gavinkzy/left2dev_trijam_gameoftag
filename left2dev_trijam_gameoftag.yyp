@@ -18,6 +18,7 @@
     {"id":{"name":"oMonster","path":"objects/oMonster/oMonster.yy",},"order":6,},
     {"id":{"name":"back_buildings","path":"sprites/back_buildings/back_buildings.yy",},"order":0,},
     {"id":{"name":"far_buildings","path":"sprites/far_buildings/far_buildings.yy",},"order":1,},
+    {"id":{"name":"fDogica","path":"fonts/fDogica/fDogica.yy",},"order":1,},
     {"id":{"name":"fDefault","path":"fonts/fDefault/fDefault.yy",},"order":0,},
     {"id":{"name":"sCamPin","path":"sprites/sCamPin/sCamPin.yy",},"order":6,},
     {"id":{"name":"oMusicPlayer","path":"objects/oMusicPlayer/oMusicPlayer.yy",},"order":5,},
