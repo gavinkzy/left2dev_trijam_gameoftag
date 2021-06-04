@@ -1,0 +1,1 @@
+if (sprite_index == sJump) image_speed = 0;
