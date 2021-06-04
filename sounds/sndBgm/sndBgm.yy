@@ -1,5 +1,5 @@
 {
-  "compression": 3,
+  "compression": 0,
   "volume": 1.0,
   "preload": false,
   "bitRate": 128,
@@ -11,10 +11,10 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sndBgm.ogg",
-  "duration": 269.185,
+  "duration": 397.7396,
   "parent": {
-    "name": "Sounds",
-    "path": "folders/Sounds.yy",
+    "name": "Sound",
+    "path": "folders/Sounds/Sound.yy",
   },
   "resourceVersion": "1.0",
   "name": "sndBgm",
